@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+
+
+{% block content %}
+
+
+<h2>Artist Products</h2>
+	<div class="row">
+		{% if product %}
+		{% for item in product %}
+		<div class="col-md-6 col-lg-4 ftco-animate">
+			<div class="product">
+				<a href="javascript:" class="img-prod text-center">
+					<img class="img-fluid" src="{{MEDIA_URL}}{{item.art_image.url}}" alt="Colorlib Template">
+					<div class="overlay"></div>
+				</a>
+				<div class="text py-3 pb-4 px-3 text-center">
+					<h3><a href="#">{{ item.title }}</a></h3>
+					<h3><a href="#">{{ item.art_desc }}</a></h3>
+					<div class="d-flex">
+						<div class="pricing">
+							<p class="price">
+								<span class="price-sale"><i class="icon-inr"></i> {{ item.art_price }}</span>
+							</p>
+						</div>
+					</div>
+					<div class="bottom-area d-flex px-3">
+						<div class="m-auto d-flex">
+							<a href="{% url 'user-post-detail' pk=item.pk %}"
+								class="view d-flex justify-content-center align-items-center text-center">
+								<span><i class="icon-edit"></i></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		{% endif %}
+	</div>
+
+
+{% endblock %}

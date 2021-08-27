@@ -1,0 +1,47 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<div class="dashboard-box margin-top-0">
+
+    <!-- Headline -->
+    
+
+    <div class="content">
+        <ul class="dashboard-box-list">
+            {% for i in fall %}
+            <li>
+                <div class="boxed-list-item">
+                    <!-- Content -->
+                    <div class="item-content">
+                        <h4> Review by : {{i.user.Firstname}} </h4>
+                        
+                        <h4>Title : {{i.title}}</h4>
+                        <div class="item-details margin-top-10">
+                            <div class="star-rating" data-rating="{{i.rating}}"></div>
+                            <div class="detail-item"><i class="icon-material-outline-date-range"></i>Date :{{i.date}}</div>
+                        </div>
+                        <div class="item-description">
+                            <p>Message : {{i.Message}}</p>
+                        </div>
+                        <div>
+                            {% for j in rall %}
+                                {% if j.f_id.id == i.id %}
+                                <pre>           <strong>Reply By: {{i.artist.Firstname}} : {{j.reply}}  Date: {{j.date}}</strong> <br>
+                                </pre>
+                                {% endif %}
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,185 @@
+{% extends "app/base.html" %}
+
+
+{% block content %}
+
+
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+
+<!-- Dashboard Container -->
+<div class="dashboard-container">
+
+	<!-- Dashboard Sidebar
+	================================================== -->
+	
+	<!-- Dashboard Sidebar / End -->
+
+
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar style="background: linear-gradient(to top, rgba(243, 232, 69, 0.85) 30%, rgba(228, 209, 100, 0.4) 75%, rgba(117, 117, 247, 0) 180%, rgba(0,0,0,0) 100%);">
+		<div class="dashboard-content-inner" >
+		
+		<form action="{% url 'settinguser' pk=request.session.id %}" method="post">
+
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3 style="color:oldlace;">Profile Page</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Dashboard</a></li>
+						<li>Settings</li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-material-outline-account-circle"></i> My Account</h3>
+						</div>
+
+						<div class="content with-padding padding-bottom-0">
+
+							<div class="row">
+								
+								<div class="col-auto">
+									<div class="avatar-wrapper" data-tippy-placement="bottom" title="Change Avatar">
+										<img class="profile-pic" src="{{user_data.image.url}}" alt="" />
+										<div class="upload-button"></div>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="row">
+
+										<div class="col-xl-4">
+											<div class="submit-field">
+												<h5>First Name</h5>
+												<input type="text" class="with-border" readonly value="{{user_data.Firstname}}">
+												
+											</div>
+										</div>
+
+										<div class="col-xl-4">
+											<div class="submit-field">
+												<h5>Last Name</h5>
+												<input type="text" class="with-border" readonly value="{{user_data.Lastname}}">
+												
+											</div>
+										</div>
+
+										<div class="col-xl-4">
+											<div class="submit-field">
+												<h5>Contact</h5>
+												<input type="text" class="with-border" name="contact"readonly value="{{user_data.Contact}}">
+												
+											</div>
+										</div>
+
+										<div class="col-xl-4">
+											<!-- Account Type -->
+											<div class="submit-field">
+												<h5>Account Type</h5>
+												<div class="account-type">
+													<div>
+														<input type="radio" name="account-type-radio" id="freelancer-radio" class="account-type-radio" checked/>
+														<label for="freelancer-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i>{{request.session.Role}}</label>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="col-xl-4">
+											<div class="submit-field">
+												<h5>Email</h5>
+												<input type="email" class="with-border" readonly value="{{request.session.Email}}">
+										
+											</div>
+										</div>
+
+										<div class="col-xl-5">
+											<div class="submit-field">
+												<h5>Address</h5>
+												<textarea class="2" name="address" id="address" readonly>{{user_data.Address}}</textarea>
+										
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Dashboard Box -->
+				
+				<!-- Dashboard Box -->
+				
+				
+				<!-- Button -->
+				<div class="col-xl-12">
+					<a href="{% url 'settinguseredit' pk=request.session.id %}" class="button ripple-effect big margin-top-30">Edit Data</a>
+				</div>
+
+			</div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					© 2021 <strong>Artistry</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+		</form>
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+
+</div>
+<!-- Dashboard Container / End -->
+
+</div>
+<!-- Wrapper / End -->
+
+
+{% endblock %}

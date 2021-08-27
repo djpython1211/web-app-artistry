@@ -1,0 +1,181 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<title>Artistry</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="{% static '/css/style.css' %}">
+<link rel="stylesheet" href="{% static '/css/colors/blue.css' %}">
+
+</head>
+<body>
+
+
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2>Register</h2>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li>Register</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h3 style="font-size: 26px;">Let's create your account!</h3>
+					<span>Already have an account? <a href="{% url 'login' %}">Log In!</a></span>
+				</div>
+
+				<!-- Account Type -->
+				{% if msg %}
+                    <center><h4 style="color: red">{{msg}}</h4></center>
+                {% endif %}
+				<form action="{% url 'registeruser' %}" method="post" id="register-account-form">
+					{% csrf_token %}
+					<select name="role" id="">
+						<option>----Select Role----</option>
+						<option>User</option>
+						<option>Artist</option>
+					</select>
+					
+				<!-- Form -->
+					
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-baseline-outline"></i>
+						<input type="text" class="input-text with-border" name="fname" id="firstname-register" placeholder="First Name" required/>
+					</div>
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-baseline-outline"></i>
+						<input type="text" class="input-text with-border" name="lname" id="lastname-register" placeholder="Last Name" required/>
+					</div>
+
+					<div class="input-with-icon-left">
+						<i class="fa fa-address-book" aria-hidden="true"></i>
+						<input type="text" class="input-text with-border" name="contact" id="contact-register" placeholder="Contact" required/>
+					</div>
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-baseline-outline"></i>
+						<input type="text" class="input-text with-border" name="address" id="address-register" placeholder="Address" required/>
+					</div>
+
+				
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-baseline-mail-outline"></i>
+						<input type="text" class="input-text with-border" name="email" id="emailaddress" placeholder="Email Address" required/>
+					</div>
+
+					<div class="input-with-icon-left" title="Should be at least 8 characters long" data-tippy-placement="bottom">
+						<i class="icon-material-outline-lock"></i>
+						<input type="password" class="input-text with-border" name="password" id="password-register" placeholder="Password" required/>
+					</div>
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-outline-lock"></i>
+						<input type="password" class="input-text with-border" name="cpassword" id="password-repeat-register" placeholder="Repeat Password" required/>
+					</div>
+
+					
+					
+					<!-- Button -->
+					<button type="submit" class="button full-width button-sliding-icon ripple-effect margin-top-10" >Register<i class="icon-material-outline-arrow-right-alt"></i></button>
+
+					<!--<button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" form="login-form">Register <i class="icon-material-outline-arrow-right-alt"></i></button>-->
+				
+
+
+				</form>
+				
+				
+				<!-- Social Login -->
+				<!-- <div class="social-login-separator"><span>or</span></div> -->
+				<div class="social-login-buttons">
+					<button class="facebook-login ripple-effect"><i class="icon-brand-facebook-f"></i> Register via Facebook</button>
+					<button class="google-login ripple-effect"><i class="icon-brand-google-plus-g"></i> Register via Google+</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+
+<!-- Footer / End -->
+
+</div>
+<!-- Wrapper / End -->
+
+<!-- Scripts
+================================================== -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.0.min.js' %}"></script>
+<script src="{% static 'js/mmenu.min.js' %}"></script>
+<script src="{% static 'js/tippy.all.min.js' %}"></script>
+<script src="{% static 'js/simplebar.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'js/snackbar.js' %}"></script>
+<script src="{% static 'js/clipboard.min.js' %}"></script>
+<script src="{% static 'js/counterup.min.js' %}"></script>
+<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+</body>
+</html>

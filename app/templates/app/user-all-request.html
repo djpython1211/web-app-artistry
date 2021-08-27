@@ -1,0 +1,143 @@
+
+{% extends "app/base.html" %}
+
+
+{% block content %}
+
+
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+
+<!-- Dashboard Container -->
+<div class="dashboard-container">
+
+	<!-- Dashboard Sidebar
+	================================================== -->
+	
+	<!-- Dashboard Sidebar / End -->
+
+
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>All Your Request</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Dashboard</a></li>
+						<li>All Your Request</li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box margin-top-0">
+						<form action="{% url 'userallreq' %}" method="post">
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-material-outline-business-center"></i> Your request</h3>
+						</div>
+
+						<div class="content">
+							<ul class="dashboard-box-list">
+								{% if workrequest %}
+								{% for req in workrequest %}
+								<li>
+									<!-- Job Listing -->
+									<div class="job-listing">
+
+										<!-- Job Listing Details -->
+										<div class="job-listing-details">
+
+											<!-- Logo -->
+<!-- 											<a href="#" class="job-listing-company-logo">
+												<img src="images/company-logo-05.png" alt="">
+											</a> -->
+
+											<!-- Details -->
+											<div class="job-listing-description">
+												<h3 class="job-listing-title"><a href="#">{{req.artist.Firstname}} {{req.artist.Lastname}}</a> <span class="dashboard-status-button green">{{req.Validatereq}}</span></h3>
+
+												<!-- Job Listing Footer -->
+												<div class="job-listing-footer">
+													<ul><b>Message Request </b> : {{req.Message}}</ul>
+													<ul>
+														<li><i class="icon-material-outline-date-range"></i> Posted on {{req.is_created}}</li>
+														<!--<li><i class="icon-material-outline-date-range"></i> Expiring on 10 August, 2018</li>-->
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Buttons -->
+									<div class="buttons-to-right always-visible">
+										<a href="dashboard-manage-candidates.html" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Manage Candidates <span class="button-info">0</span></a>
+										<a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
+										<a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+									</div>
+								</li>
+								{% endfor %}
+								{% endif %}						
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					© 2021 <strong>Artistry</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+
+</div>
+<!-- Dashboard Container / End -->
+
+</div>
+<!-- Wrapper / End -->
+
+{% endblock %}

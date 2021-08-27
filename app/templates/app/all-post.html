@@ -1,0 +1,43 @@
+{% extends "app/product-base.html" %}
+
+
+{% block content %}
+
+<div class="col-xl-6 ftco-animate">
+    <h3 class="mb-4 billing-heading">Total Added</h3>
+    <div class="row">
+        {% if all %}
+        {% for item in all %}
+        <div class="col-md-6 col-lg-4 ftco-animate">
+            <div class="product">
+                <a href="#" class="img-prod text-center">
+                    <img class="img-fluid" src="{{MEDIA_URL}}{{item.art_image.url}}" alt="#">
+                    <div class="overlay"></div>
+                </a>
+                <div class="text py-3 pb-4 px-3 text-center">
+                    <h3><a href="#">{{ item.title }}</a></h3>
+                    <div class="d-flex">
+                        <div class="pricing">
+                            <p class="price">
+                                <span class="price-sale"><i class="icon-inr"></i> {{ item.art_price }}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bottom-area d-flex px-3">
+                        <div class="m-auto d-flex">
+                            <a href="{% url 'post-detail' pk=item.id %}"
+                                class="view d-flex justify-content-center align-items-center text-center">
+                                <span><i class="icon-edit"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

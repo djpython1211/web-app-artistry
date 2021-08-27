@@ -1,0 +1,84 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <div class="row">
+            {% if total_cart %}
+            <div class="col-md-12 ftco-animate">
+                <div class="cart-list">
+                    {% if msg %}
+                        <div class="col-12 msg mb-3 text-center">
+                            <span class="text-primary">{{msg}}</span>
+                        </div>
+                    {% endif %}
+                    
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>Product List</th>
+                                <th>&nbsp;</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in cart %}
+                            <tr class="text-center">
+                                <td class="product-remove"><a href="{% url 'remove_from_cart' pk=i.product.pk %}"><span
+                                    class="ion-ios-close"></span></a></td>
+
+                                <td class="image-prod">
+                                    <div class="img" style="background-image:url({{i.product.art_image.url}});">
+                                    </div>
+                                </td>
+
+                                <td class="product-name">
+                                    <h3>{{ i.product.title }}</h3>
+                                    <p>{{ i.product.art_desc }}</p>
+                                </td>
+
+                                <td class="price"><i class="icon-inr"></i> {{ i.product.art_price }}</td>
+
+                                <td class="quantity">
+                                    <div class="input-group mb-3">
+                                        <form method="post" class="w-100 cart_qty_update text-center"
+                                            action="{%  url 'update-cart' i.product.pk %}">
+                                            {% csrf_token %}
+                                            <input type="number" class="quantity form-control input-number"
+                                                onchange="form.submit()" name="qty" value="{{ i.qty }}" min="1"
+                                                max="10" />
+                                        </form>
+                                    </div>
+                                </td>
+
+                                <td class="total"><i class="icon-inr"></i> {{ i.total }}</td>
+                            </tr><!-- END TR-->
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-12 ftco-animate text-right mt-3">
+                <form name="pay" method="post" action="{% url 'payment' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="total" value="{{cart_amt}}">
+                    <input type="submit" value="Pay INR {{ cart_amt }}" class="btn btn-primary py-3 px-4">
+                </form>
+            </div>
+            {% else %}
+            <div class="col-md-12 ftco-animate">
+                <div class="text-center">
+                    <span class="icon-remove_shopping_cart" style="font-size: 5rem"></span>
+                    <h3 class="mt-3">Your cart is empty.</h3>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

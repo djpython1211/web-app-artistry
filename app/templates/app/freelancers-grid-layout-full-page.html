@@ -1,0 +1,171 @@
+{% extends "app/base.html" %}
+
+
+{% block content %}
+
+
+
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+<!-- Page Content
+================================================== -->
+<div class="full-page-container">
+
+	
+	<!-- Full Page Sidebar / End -->
+	
+	<!-- Full Page Content -->
+	<div class="full-page-content-container" data-simplebar>
+		<div class="full-page-content-inner">
+
+			
+
+			<!-- Freelancers List Container -->
+			<div class="freelancers-container freelancers-grid-layout margin-top-35">
+				{% if artist_data %}
+				{% for artist in artist_data %}
+				<!--Freelancer -->
+				<div class="freelancer">
+
+					<!-- Overview -->
+					<div class="freelancer-overview">
+						<div class="freelancer-overview-inner">
+							
+							<!-- Bookmark Icon -->
+							<span class="bookmark-icon"></span>
+							
+							<!-- Avatar -->
+							<div class="freelancer-avatar">
+								<div class="verified-badge"></div>
+								{% if request.session.user_image %}
+									<a href="{% url 'freelancer-full-profile' pk=artist.id %}">
+										<img src="{{artist.image.url}}" width="100" height="100" alt="image">
+									</a>
+								{% else %}
+									<a href="{% url 'freelancer-full-profile' pk=artist.id %}">
+										<img src="" width="100" height="100" alt="image">
+									</a>
+								{% endif %}
+							</div>
+
+							<!-- Name -->
+							<div class="freelancer-name">
+
+								<h4><a href="{% url 'freelancer-full-profile' pk=artist.id %}">{{artist.Firstname}} {{artist.Lastname}}</a></h4>
+								
+    							<img class="flag" src="" alt="" title="United Kingdom" data-tippy-placement="top">
+							
+								
+								<span>{{artist.Skills}}</span>
+							</div>
+
+							<!-- Rating -->
+							<div class="freelancer-rating">
+								
+								<div class="star-rating" data-rating="{{artist.rating}}"></div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Details -->
+					<div class="freelancer-details">
+						<div class="freelancer-details-list">
+							<ul>
+								<li>Location <strong><i class="icon-material-outline-location-on"></i>{{artist.Address}}</strong></li>
+								<li>Contact <strong><i class="icon-material-outline-location-on"></i>{{artist.Contact}}</strong></li>
+								<!-- <li>Rate <strong>$60 / hr</strong></li> -->
+								
+							</ul>
+						</div>
+						<a href="{% url 'freelancer-full-profile' pk=artist.id %}" class="button button-sliding-icon ripple-effect">View Profile <i class="icon-material-outline-arrow-right-alt"></i></a>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+				<!-- Freelancer / End -->
+
+				<!--Freelancer -->
+				
+				<!-- Freelancer / End -->
+
+				<!--Freelancer -->
+				
+				<!-- Freelancer / End -->
+
+				<!--Freelancer -->
+				
+				<!-- Freelancer / End -->
+				
+				<!--Freelancer -->
+				
+				<!-- Freelancer / End -->
+							
+				<!--Freelancer -->
+				
+				<!-- Freelancer / End -->
+	
+			</div>
+			<!-- Freelancers Container / End -->
+
+			<!-- Pagination -->
+			<div class="clearfix"></div>
+			<div class="pagination-container margin-top-20 margin-bottom-20">
+				<nav class="pagination">
+					<ul>
+						<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-left"></i></a></li>
+						<li><a href="#" class="ripple-effect">1</a></li>
+						<li><a href="#" class="ripple-effect current-page">2</a></li>
+						<li><a href="#" class="ripple-effect">3</a></li>
+						<li><a href="#" class="ripple-effect">4</a></li>
+						<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="clearfix"></div>
+			<!-- Pagination / End -->
+
+			<!-- Footer -->
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights" style="color: black;">
+					© 2021 <strong style="color: bisque;">Artistry</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Full Page Content / End -->
+
+</div>
+
+
+</div>
+<!-- Wrapper / End -->
+
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 ftco-animate">
+                <a href="{{ product.art_image.url }}" class="image-popup" width="10" height="10">
+                    <img src="{{ product.art_image.url }}" class="img-fluid w-100" alt="Colorlib Template" width="10" height="10"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <h3>{{product.title}}</h3>
+                <h5>Sold by: {{product.post_artist.Firstname}}</h5>
+
+                <p class="price"><span><i class="icon-inr"></i> {{product.art_price}}</span></p>
+                <p>
+                    {{product.art_desc}}
+                </p>
+
+                <div class="mt-3">
+                    {% if wlist_flag %}
+                    <a href="{% url 'add_to_wishlist' pk=product.pk %}" class="btn btn-black py-3 px-5">
+                        <span class="icon-heart mr-2"></span> Wishlist
+                    </a>
+                    {% else %}
+                    <a href="{% url 'remove_from_wishlist' pk=product.pk %}" class="btn btn-black py-3 px-5">
+                        <span class="icon-heart-o mr-2"></span> Remove
+                    </a>
+                    {% endif %}
+                    
+                    
+                    {% if cart_flag %}
+                    <a href="{% url 'add_to_cart' pk=product.pk %}" class="btn btn-black py-3 px-5">
+                        <span class="icon-shopping_cart mr-2"></span> Cart</a>
+                    {% else %}
+                    <a href="{% url 'remove_from_cart' pk=product.pk %}" class="btn btn-black py-3 px-5">
+                        <span class="icon-remove_shopping_cart mr-2"></span> Remove
+                    </a>
+
+                    {% endif %}
+                    
+                    
+                                        
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

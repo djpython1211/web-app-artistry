@@ -1,0 +1,73 @@
+{% extends "app/product-base.html" %}
+
+
+{% block content %}
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 ftco-animate">
+                <h3 class="mb-4 billing-heading">{{product.title}}</h3>
+                <div class="row">
+                    <div class="col-md-6 col-lg-7 ftco-animate text-center">
+                        <div class="product">
+                            <a href="#" class="img-prod text-center">
+                                <img class="img-fluid w-100" src="{{MEDIA_URL}}{{ post.post_image.url }}" height="250px" width="200px" alt="Colorlib Template">
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="text py-3 pb-4 px-3 text-center">
+                                <h3><a href="#">{{ post.post_name }}</a></h3>
+                                <h3><a href="#">{{ post.post_desc }}</a></h3>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <h3 class="mb-4 billing-heading">Edit Details</h3>
+                
+                    <form class="row g-3" method="POST" action="{% url 'view_art_post_edit' pk=post.pk %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-6 mb-3">
+                            <label for="fullname" class="form-label">Product Name</label>
+                            <input class="form-control" id="post_name" type="text" name="post_name" 
+                                placeholder="Product name" value="{{ post.post_name }}">
+                        </div>
+        
+        
+                        <div class="col-6 mb-3">
+                            <label for="price" class="form-label">Image</label>
+                            
+                            <div class="input-group">
+                                <label class="input-group-text" for="upload">Upload</label>
+                                <input type="file" class="form-control" name="post_image" id="upload">
+                            </div>
+                        </div>
+        
+                        <div class="col-12 mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" name="post_desc" id="post_desc" rows="3">{{ post.post_desc }}</textarea>
+                        </div>
+        
+                        {% if msg %}
+                        <div class="col-12 msg bt-3">
+                            <span class="text-primary">{{ msg }}</span>
+                        </div>
+                        {% endif %}
+
+                        <div class="col-12 mb-3">
+                            <button type="submit" class="btn btn-black py-3 px-5"><i class="icon-save"></i> Update</button>
+                            <a href="{% url 'art_post_delete' pk=post.pk %}">
+                              <button type="button" class="btn btn-danger py-3 px-5"><i class="icon-delete"></i> Delete</button>
+                            </a>
+                          </div>
+                    </form>
+                
+            </div> <!-- .col-md-8 -->
+        </div>
+    </div>
+</section> <!-- .section -->
+
+
+{% endblock %}

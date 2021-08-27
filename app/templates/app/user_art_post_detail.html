@@ -1,0 +1,28 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 ftco-animate">
+                <a href="{{ post.post_image.url }}" class="image-popup" width="10" height="10">
+                    <img src="{{ post.post_image.url }}" class="img-fluid w-100" alt="Colorlib Template" width="10" height="10"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <h3>Post Name : {{post.post_name}}</h3>
+                <h5>Post Description: {{post.post_desc}}</h5>
+
+                <p>
+                    <h6>Post Created :</h6>
+                    {{post.date}}
+                </p>
+
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

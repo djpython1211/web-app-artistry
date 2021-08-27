@@ -1,0 +1,66 @@
+
+
+{% if key11 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="{% url 'update' pk=key11.admin_id.id %}" method="POST" >
+  {% csrf_token %}
+
+<div class="container">
+              
+  <table class="table table-striped">
+    <h3>UpdatePage</h3>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>is_active</th>
+        <th>is_verified</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+        <td>
+            <input type="text" name="id" id="" readonly value={{key11.id}}>
+        </td>
+
+        <td>
+            <input type="text" name="fname" id="" readonly value={{key11.Firstname}}>
+        </td>   
+      
+        <td>
+            <input type="text" name="lname" id="" readonly value={{key11.Lastname}}>
+        </td>
+        <td>
+            <input type="text" name="is_active" id="" value="{{key11.admin_id.is_active}}">
+        </td>
+        <td>
+            <input type="text" name="is_verifed" id="" value="{{key11.admin_id.is_verified}}">
+        </td>
+      
+      <tr>
+        <td>
+            <input type="submit" value="Update">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</form>
+</body>
+</html>
+
+{% endif %}
+
+

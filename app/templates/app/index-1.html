@@ -1,0 +1,200 @@
+{% extends "app/base.html" %}
+
+
+{% block content %}
+
+{% load static %}
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+
+
+<!-- Intro Banner
+================================================== -->
+<!-- add class "disable-gradient" to enable consistent background overlay -->
+<div  class="intro-banner" data-background-image="{% static '/images/fly.jpg' %}">
+	<!-- style="background-image:url({% static '/images/fly.jpg' %});  height:1080px; width:1920px; background-repeat: no-repeat; " -->
+	<div class="container">
+		
+		<!-- Intro Headline -->
+		<div class="row">
+			<div class="col-md-10">
+				<div class="banner-headline">
+					<h3>
+						<br><br><br><br>
+						<strong style="color:cyan;">To be  an Artist is to Believe in life.</strong>
+						<br><br>
+						<span style="color:rgb(162, 225, 38);">Every Child is an <strong style="color: crimson;">Artist</strong> the problem is how to remain an Artist once he grow up.</span>
+						<br><br><br><br>
+					</h3>
+				</div>
+			</div>
+		</div>
+		
+		
+
+		<!-- Stats -->
+		<!-- <div class="row">
+			<div class="col-md-12">
+				<ul class="intro-stats margin-top-45 hide-under-992px">
+					<li>
+						<strong class="counter">12</strong>
+						<span>Types of Art</span>
+					</li>
+					<li>
+						<strong class="counter">3</strong>
+						<span>Tasks Posted</span>
+					</li>
+					<li>
+						<strong class="counter">{{total_artists}}</strong>
+						<span>Artists</span>
+					</li>
+				</ul>
+			</div>
+		</div> -->
+
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<!-- Category Boxes -->
+<div class="section margin-top-65">
+	<div class="container" > 
+		<div class="row" >
+			<div class="col-xl-12">
+
+				<div class="section-headline centered margin-bottom-15">
+					<h2 style="font-size: xx-large; color:rgb(7, 111, 57);">Art Categories</h2>
+				</div>
+
+				<!-- Category Boxes Container -->
+				
+				<div class="categories-container" >
+
+					<a href="#" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-pencil"></i>
+						</div>
+						<div class="category-box-counter">612</div>
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">Drawing</h3>
+							<p style="color:black;">Line , Doodling , Architectural , Pointillism & More </p>
+						</div>
+					</a>
+
+					<!-- Category Box -->
+					<a href="#" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-graduation-cap"></i>
+						</div>
+						<div class="category-box-counter">445</div>
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">Painting</h3>
+							<p style="color:black;">Acrylic , Pastel , Gouache , Charcoal , Ink , Spray  & More</p>
+						</div>
+					</a>
+
+					<!-- Category Box -->
+					<a href="#" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-trophy"></i>
+						</div>
+						<div class="category-box-counter">113</div>
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">Singing</h3>
+							<p style="color:black;">Classical , Ghazal , Pop , Rock , Opera , Jazz & More</p>
+						</div>
+					</a>
+
+					<!-- Category Box -->
+					<a href="#" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-pie-chart"></i>
+						</div>
+						<div class="category-box-counter">186</div>
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">Dancing</h3>
+							<p style="color:black;">Classical , Hip-Hop , Contemporary , Folk & More </p>
+						</div>
+					</a>
+
+					<!-- Category Box -->
+					<a href="jobs-list-layout-1.html" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-pencil"></i>
+						</div>
+						<div class="category-box-counter">298</div>
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">Cooking</h3>
+							<p style="color:black;">Baking , Roasting , Grilling , Steaming  & More</p>
+						</div>
+					</a>
+
+					<!-- Category Box -->
+					<a href="jobs-list-layout-2.html" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-pie-chart"></i>
+						</div>
+						<div class="category-box-counter">549</div>						
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">Crafting</h3>
+							<p style="color:black;">Ceramics & glass , Flowers , Leatherwork , Houseware , Paper & More</p>
+						</div>
+					</a>
+
+					<!-- Category Box -->
+					<a href="jobs-list-layout-1.html" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-image"></i>
+						</div>
+						<div class="category-box-counter">873</div>
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">Designing</h3>
+							<p style="color:black;">Interior , Mehndi , Fashion , Decorating  & More</p>
+						</div>
+					</a>
+
+					<!-- Category Box -->
+					<a href="jobs-list-layout-2.html" class="category-box">
+						<div class="category-box-icon">
+							<i class="icon-line-awesome-bullhorn"></i>
+						</div>
+						<div class="category-box-counter">125</div>
+						<div class="category-box-content">
+							<h3 style="font-style: oblique;">PhotoGraphy</h3>
+							<p style="color:black;">Portrait , Fashion , Sports , Architecture , Documentary , Phtotjourmalism & More</p>
+						</div>
+					</a>
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Category Boxes / End -->
+
+
+<!-- Features Jobs -->
+
+<!-- Featured Jobs / End -->
+
+
+<!-- Features Cities -->
+
+<!-- Features Cities / End -->
+
+
+<!-- Highest Rated Freelancers -->
+
+<!-- Highest Rated Freelancers / End-->
+
+
+<!-- Membership Plans -->
+
+<!-- Membership Plans / End-->
+
+{% endblock %}
